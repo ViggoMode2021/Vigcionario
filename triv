@@ -25,6 +25,10 @@ def search():
             for item in meaning:
                 text_area.insert(END,u'\u2022'+item)
 
+def clear_box():
+    enter_word_entry.delete(0,END)
+    text_area.delete(1.0,END)
+
 #GUI
 root = Tk()
 
@@ -48,9 +52,9 @@ search_image = PhotoImage(file='search.png')
 search_button = Button(root,image=search_image,bd=0, bg='whitesmoke', cursor='hand2', activebackground='whitesmoke', command=search)
 search_button.place(x=620, y=150)
 
-mic_image=PhotoImage(file='mic.png')
-mic_button = Button(root, image=mic_image, cursor='hand2')
-mic_button.place(x=710, y=153)
+clear_image=PhotoImage(file='clear.png')
+clear_button = Button(root, image=clear_image, cursor='hand2', command=clear_box)
+clear_button.place(x=710, y=153)
 
 meaning_label = Label(root,text='significado', font=('castellar',15),fg='red3')
 meaning_label.place(x=500,y=240)
@@ -63,10 +67,6 @@ audio_image=PhotoImage(file='microphone.png')
 audio_button = Button(root, image=audio_image,bd=0,bg='whitesmoke')
 audio_button.place(x=530,y=455)
 '''
-
-clear_image=PhotoImage(file='clear.png')
-clear_image = Button(root,image=clear_image,bd=0,bg='whitesmoke')
-clear_image.place(x=530,y=455)
 
 exit_image=PhotoImage(file='exit.png')
 exit_image = Button(root,image=exit_image,bd=0,bg='whitesmoke')
