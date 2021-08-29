@@ -2,6 +2,7 @@ from tkinter import *
 import json
 from difflib import get_close_matches
 from tkinter import messagebox
+import pyttsx3
 
 #Functionality
 
@@ -29,6 +30,14 @@ def clear_box():
     enter_word_entry.delete(0,END)
     text_area.delete(1.0,END)
 
+def listen():
+    global engine
+    engine = pyttsx3.init()
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[2].id)
+    engine.say(text_area.get(1.0,END))
+    engine.runAndWait()
+
 #GUI
 root = Tk()
 
@@ -36,13 +45,12 @@ root.geometry('1000x626+100+30')
 
 root.title('Diccionario de hablar')
 
-root.resizable(False, False)
 
 bg_image = PhotoImage(file='background2.png')
 bg_label=Label(root, image=bg_image)
 bg_label.place(x=0, y=0)
 
-enter_word_label = Label(root, text='Escribe la Palabra', font=('castellar',15), foreground='red3')
+enter_word_label = Label(root, text='Escribe la palabra/Write the word', font=('castellar',15), foreground='red3')
 enter_word_label.place(x=530, y=20)
 
 enter_word_entry= Entry(root, font=('arial', 23,'bold'), justify=CENTER, bd=15, relief=GROOVE)
@@ -62,14 +70,9 @@ meaning_label.place(x=500,y=240)
 text_area=Text(root,width=34,height=14,font=('arial',18,'bold'))
 text_area.place(x=460,y=300)
 
-'''
-audio_image=PhotoImage(file='microphone.png')
-audio_button = Button(root, image=audio_image,bd=0,bg='whitesmoke')
-audio_button.place(x=530,y=455)
-'''
+audio_image=PhotoImage(file='exit.png')
+audio_button = Button(root, image=audio_image,bd=0,bg='whitesmoke', command=listen)
+audio_button.place(x=810, y=156)
 
-exit_image=PhotoImage(file='exit.png')
-exit_image = Button(root,image=exit_image,bd=0,bg='whitesmoke')
-exit_image.place(x=530,y=455)
 
 root.mainloop()
