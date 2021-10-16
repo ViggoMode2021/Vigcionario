@@ -1,3 +1,5 @@
-{"hablar": ["to talk"], "to talk": ["hablar"], "comer": ["to eat"], "to eat": ["comer"],
-"vivir": ["to live"], "to live": ["vivir"],"practicar": ["to practice"],"bailar": ["to dance"]
+{"hablar": ["to talk - hablar"], "to talk": ["hablar - to talk"], "comer": ["to eat - comer"], "to eat": ["comer - to eat"],
+"vivir": ["to live - vivir"], "to live": ["vivir - to live"],"practicar": ["to practice - practicar"],"bailar": ["to dance - bailar"],
+  "leer": ["to read - leer"], "correr": ["to run - correr"], "jugar": ["to play (sport, game) - jugar"], "tocar": ["to play/touch (instrument) - tocar"],
+  "cantar": ["to sing - cantar"], "escribir": ["to write - escribir"]
 }
